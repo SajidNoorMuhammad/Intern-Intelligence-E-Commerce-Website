@@ -4,5 +4,7 @@ export const BASE_URL = devUrl;
 export const AppRoutes = {
     login: BASE_URL + 'authlogin/login',
     getinfo: BASE_URL + 'authlogin/getInfo',
-    registers: BASE_URL + 'auth/register'
+    registers: BASE_URL + 'auth/register',
+    getproducts: BASE_URL + 'admin/electronics',
+    addproducts: BASE_URL + 'admin/additems'
 }
