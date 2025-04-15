@@ -6,6 +6,7 @@ import HotCategories from '../../components/Home/HotCategories';
 import FourImage from '../../components/Home/FourImage';
 import NewArrivals from '../../components/Home/NewArrivals';
 import Collection from '../../components/Home/Collection';
+import Footer from '../../components/Home/Footer';
 
 const Home = () => {
     const { user } = useContext(AuthContext);
@@ -20,6 +21,7 @@ const Home = () => {
                 <NewArrivals />
                 <Collection />
             </div>
+            <Footer />
         </div>
     )
 }
