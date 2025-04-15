@@ -113,7 +113,7 @@ const ProductDetail = () => {
                         Add to Cart
                     </button>
                     <button
-                        className=" w-full bg-blue-600 cursor-pointer text-white py-3 rounded-lg text-sm font-medium flex justify-center items-center gap-2 hover:bg-blue-700 active:scale-95 transition-all duration-150"
+                        className=" w-full bg-blue-600 max-sm:mt-3 cursor-pointer text-white py-3 rounded-lg text-sm font-medium flex justify-center items-center gap-2 hover:bg-blue-700 active:scale-95 transition-all duration-150"
                         onClick={() => navigate(-1)}
                     >
                         Go Back
