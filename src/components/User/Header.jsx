@@ -64,7 +64,7 @@ const Header = () => {
           </Link>
 
           {/* 👤 User Image or Icon */}
-          <Link className=' flex items-center' to={'/profile'}>
+          <Link className=' flex items-center' to={user ? '/profile' : '/login'}>
             {user?.yourImage ? (
               <img className="w-12 h-12 rounded-full ml-4 border-2 border-white" src={user?.yourImage} alt="User" />
             ) : (
