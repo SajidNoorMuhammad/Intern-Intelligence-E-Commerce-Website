@@ -16,10 +16,14 @@ const MainSilder = () => {
         "/Images/swipe8.jpg",
         "/Images/swipe9.jpg",
         "/Images/swipe10.jpg",
+        "/Images/swipe11.jpg",
+        "/Images/swipe12.jpg",
+        "/Images/swipe13.jpg",
+        "/Images/swipe14.jpg",
 
     ];
     return (
-        <div>
+        <div >
             <Swiper
                 modules={[Autoplay]}
                 spaceBetween={10}
