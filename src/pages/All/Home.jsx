@@ -4,16 +4,22 @@ import Header from '../../components/User/Header';
 import MainSilder from '../../components/Home/MainSilder';
 import HotCategories from '../../components/Home/HotCategories';
 import FourImage from '../../components/Home/FourImage';
+import NewArrivals from '../../components/Home/NewArrivals';
+import Collection from '../../components/Home/Collection';
 
 const Home = () => {
     const { user } = useContext(AuthContext);
     console.log(user);
 
     return (
-        <div className='w-full'>
+        <div>
             <MainSilder />
-            <HotCategories />
-            <FourImage />
+            <div className='w-full ml-4 mr-4'>
+                <HotCategories />
+                <FourImage />
+                <NewArrivals />
+                <Collection />
+            </div>
         </div>
     )
 }
