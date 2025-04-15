@@ -32,7 +32,7 @@ const NewArrivals = () => {
     }, []);
 
     return (
-        <div className="py-2 mt-10 px-4">
+        <div className="py-2 mt-10 px-4 max-sm:mb-0 max-sm:pb-0">
             <h2 className="text-3xl font-bold mb-4 text-blue-700">New Arrivals</h2>
 
             {isMobile ? (
