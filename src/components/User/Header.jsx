@@ -31,12 +31,12 @@ const Header = () => {
   }, [user]);
 
   return (
-    <header className="bg-green-500 shadow-md sticky top-0 z-50">
+    <header className="bg-[#10658b] shadow-md sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
 
-        <div className="text-2xl font-bold text-blue-600">
-          ShopEase
-        </div>
+        <Link to={'/'} className="text-2xl font-bold italic underline text-white">
+          ShopifyBeast
+        </Link>
 
         <div className="flex-1 mx-6 max-w-xl">
           <input
@@ -48,13 +48,13 @@ const Header = () => {
 
         <div className="flex items-center text-gray-700">
           <Link to={'/wishlist'}>
-            <Heart className="cursor-pointer hover:text-red-500 ml-6" />
+            <Heart className="cursor-pointer text-white hover:text-black ml-6" />
           </Link>
 
           {/* 🛒 Cart Icon with Count */}
           <Link to={'/cart'}>
             <div className="relative ml-4">
-              <ShoppingCart className="cursor-pointer hover:text-blue-600" />
+              <ShoppingCart className="cursor-pointer text-white hover:text-black" />
               {cartItems.length > 0 && (
                 <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs font-semibold rounded-full w-5 h-5 flex items-center justify-center">
                   {cartItems.length}
@@ -64,12 +64,14 @@ const Header = () => {
           </Link>
 
           {/* 👤 User Image or Icon */}
-          {user?.yourImage ? (
-            <img className="w-12 h-12 rounded-full ml-4" src={user?.yourImage} alt="User" />
-          ) : (
-            <User className="cursor-pointer hover:text-blue-600 ml-4" />
-          )}
-          {user && <p className="ml-2 font-bold">{user.fullname}</p>}
+          <Link className=' flex items-center' to={'/profile'}>
+            {user?.yourImage ? (
+              <img className="w-12 h-12 rounded-full ml-4 border-2 border-white" src={user?.yourImage} alt="User" />
+            ) : (
+              <User className="cursor-pointer text-white hover:text-black ml-4" />
+            )}
+            {user && <p className="ml-2 font-bold text-white">{user.fullname}</p>}
+          </Link>
         </div>
 
       </div>
