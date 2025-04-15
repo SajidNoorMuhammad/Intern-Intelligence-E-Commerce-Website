@@ -77,7 +77,7 @@ const Cart = () => {
     if (error) return <div className="text-center mt-10 text-red-500">{error}</div>;
 
     return (
-        <div className="max-w-4xl mx-auto mt-10 p-4">
+        <div className="max-w-4xl mx-auto mt-10 p-4 ">
             <h2 className="text-3xl font-bold mb-6 text-center">Your Cart</h2>
 
             {cartItems.length === 0 ? (
@@ -88,7 +88,7 @@ const Cart = () => {
                         {cartItems.map((item, index) => {
                             const discountedPrice = item.price - (item.price * item.discount) / 100;
                             return (
-                                <li key={index} className="flex flex-col md:flex-row gap-4 items-center p-4 border rounded-lg shadow bg-white">
+                                <li key={index} className="flex flex-col md:flex-row gap-4 pl-8 p-4 border rounded-lg shadow bg-white">
                                     <img
                                         src={item.image}
                                         alt={item.productName}
