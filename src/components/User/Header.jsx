@@ -70,7 +70,7 @@ const Header = () => {
             ) : (
               <User className="cursor-pointer text-white hover:text-black ml-4" />
             )}
-            {user && <p className="ml-2 font-bold text-white">{user.fullname}</p>}
+            {user && <p className="ml-2 font-bold text-white max-sm:hidden">{user.fullname}</p>}
           </Link>
         </div>
 
