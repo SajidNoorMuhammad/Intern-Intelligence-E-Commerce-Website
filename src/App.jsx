@@ -14,6 +14,7 @@ import ProductDetail from './pages/User/ProductDetail'
 import Cart from './pages/User/Cart'
 import Order from './pages/User/Order'
 import Wishlist from './pages/User/Wishlist'
+import SubHeader from './components/User/SubHeader'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -21,6 +22,7 @@ function App() {
   return (
     <BrowserRouter>
       <Header />
+      <SubHeader />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<LoginPage />} />
