@@ -11,7 +11,7 @@ const Collection = () => {
     ];
 
     return (
-        <div className="py-10 md:px-10 bg-white">
+        <div className="py-10 md:px-4 mr-[2%] bg-white">
             <h2 className="text-3xl font-bold mb-4 text-blue-700">Collections</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {images.map((img, idx) => (
