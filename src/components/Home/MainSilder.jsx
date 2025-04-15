@@ -34,7 +34,7 @@ const MainSilder = () => {
             >
                 {images.map((src, index) => (
                     <SwiperSlide key={index}>
-                        <img src={src} alt={`Slide ${index}`} className="w-full max-sm:w-[100%] max-sm:h-[200px] h-100 rounded-lg" />
+                        <img src={src} alt={`Slide ${index}`} className="w-full max-sm:w-[100%] max-sm:h-[200px] h-100" />
                     </SwiperSlide>
                 ))}
             </Swiper>

@@ -45,7 +45,7 @@ const SubHeader = () => {
 
             {/* Mobile Nav Trigger */}
             <div className="md:hidden flex justify-between items-center px-4 py-3">
-                <h1 className="text-white"><input placeholder='Search here...' className='border-1 p-2 w-[150%] border-white rounded-full' type="text" /></h1>
+                <h1 className="text-white"><input placeholder='Search here...' className='border-1 p-2 w-[100%] border-white rounded-full' type="text" /></h1>
                 <button onClick={() => setIsSidebarOpen(true)}>
                     <Menu className="text-white" />
                 </button>
