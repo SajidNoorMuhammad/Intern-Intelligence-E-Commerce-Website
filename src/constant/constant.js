@@ -6,5 +6,11 @@ export const AppRoutes = {
     getinfo: BASE_URL + 'authlogin/getInfo',
     registers: BASE_URL + 'auth/register',
     getproducts: BASE_URL + 'admin/electronics',
-    addproducts: BASE_URL + 'admin/additems'
+    addproducts: BASE_URL + 'admin/additems',
+    addtocart: BASE_URL + 'user/cart',
+    usercart: BASE_URL + 'user/carting',
+    addorder: BASE_URL + 'cart/place-order',
+    eachorder: BASE_URL + 'cart/ordering',
+    oneorder: BASE_URL + 'cart/eachorder',
+    deletecart: BASE_URL + 'user/deleteitem'
 }
