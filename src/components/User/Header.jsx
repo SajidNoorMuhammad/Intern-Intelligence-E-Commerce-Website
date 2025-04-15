@@ -38,7 +38,7 @@ const Header = () => {
           ShopifyBeast
         </Link>
 
-        <div className="flex-1 mx-6 max-w-xl">
+        <div className="flex-1 mx-6 max-w-xl max-sm:hidden">
           <input
             type="text"
             placeholder="Search for products..."
