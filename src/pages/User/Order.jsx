@@ -94,9 +94,15 @@ const Order = () => {
                                 </div>
 
                                 {/* Total */}
-                                <div className="mt-4 text-right">
-                                    <h3 className="text-lg font-semibold text-gray-800">
-                                        Total Amount (After Discounts): Rs. {Math.round(calculatedTotal).toFixed(2)}
+                                <div className="mt-4 text-right max-sm:text-left">
+                                    <h3 className="text-lg font-semibold text-gray-800 max-sm:text-[16px]">
+                                        Total Amount (After Disc): Rs. {Math.round(calculatedTotal).toFixed(2)}
+                                    </h3>
+                                    <h3 className="text-lg font-semibold text-gray-800 max-sm:text-[16px]">
+                                        Delivery fee: Rs. {order?.fee}
+                                    </h3>
+                                    <h3 className="text-lg font-semibold text-gray-800 max-sm:text-[16px]">
+                                        Total: Rs. {Math.round(calculatedTotal) + Number(order?.fee)}
                                     </h3>
                                 </div>
                             </div>
