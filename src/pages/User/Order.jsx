@@ -103,22 +103,29 @@ const Order = () => {
                                             {Math.round(calculatedTotal).toFixed(2)}
                                         </div>
                                     </h3>
-                                    <h3 className="text-lg flex justify-between font-semibold text-gray-800 max-sm:text-[16px]">
-                                        <div>
-                                            Delivery fee: Rs.
-                                        </div>
-                                        <div>
-                                            {order?.fee}/-
-                                        </div>
-                                    </h3>
-                                    <h3 className="text-lg font-semibold text-gray-800 max-sm:text-[16px] flex justify-between">
-                                        <div>
-                                            Total: Rs.
-                                        </div>
-                                        <div>
-                                            {Math.round(calculatedTotal) + Number(order?.fee)}/-
-                                        </div>
-                                    </h3>
+                                    {
+                                        order?.status === "Accepted" ?
+                                            <div>
+                                                <h3 className="text-lg flex justify-between font-semibold text-gray-800 max-sm:text-[16px]">
+                                                    <div>
+                                                        Delivery fee: Rs.
+                                                    </div>
+                                                    <div>
+                                                        {order?.fee}/-
+                                                    </div>
+                                                </h3>
+                                                <h3 className="text-lg font-semibold text-gray-800 max-sm:text-[16px] flex justify-between">
+                                                    <div>
+                                                        Total: Rs.
+                                                    </div>
+                                                    <div>
+                                                        {Math.round(calculatedTotal) + Number(order?.fee)}/-
+                                                    </div>
+                                                </h3>
+                                            </div>
+                                            :
+                                            null
+                                    }
                                 </div>
                             </div>
                         );
