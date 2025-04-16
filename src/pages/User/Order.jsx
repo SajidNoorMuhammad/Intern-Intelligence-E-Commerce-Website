@@ -94,15 +94,30 @@ const Order = () => {
                                 </div>
 
                                 {/* Total */}
-                                <div className="mt-4 text-right max-sm:text-left">
-                                    <h3 className="text-lg font-semibold text-gray-800 max-sm:text-[16px]">
-                                        Total Amount (After Disc): Rs. {Math.round(calculatedTotal).toFixed(2)}
+                                <div className="mt-4 text-right max-sm:text-right">
+                                    <h3 className="text-lg flex justify-between font-semibold text-gray-800 max-sm:text-[16px]">
+                                        <div>
+                                            Total Amount (After Disc): Rs.
+                                        </div>
+                                        <div>
+                                            {Math.round(calculatedTotal).toFixed(2)}
+                                        </div>
                                     </h3>
-                                    <h3 className="text-lg font-semibold text-gray-800 max-sm:text-[16px]">
-                                        Delivery fee: Rs. {order?.fee}
+                                    <h3 className="text-lg flex justify-between font-semibold text-gray-800 max-sm:text-[16px]">
+                                        <div>
+                                            Delivery fee: Rs.
+                                        </div>
+                                        <div>
+                                            {order?.fee}/-
+                                        </div>
                                     </h3>
-                                    <h3 className="text-lg font-semibold text-gray-800 max-sm:text-[16px]">
-                                        Total: Rs. {Math.round(calculatedTotal) + Number(order?.fee)}
+                                    <h3 className="text-lg font-semibold text-gray-800 max-sm:text-[16px] flex justify-between">
+                                        <div>
+                                            Total: Rs.
+                                        </div>
+                                        <div>
+                                            {Math.round(calculatedTotal) + Number(order?.fee)}/-
+                                        </div>
                                     </h3>
                                 </div>
                             </div>
