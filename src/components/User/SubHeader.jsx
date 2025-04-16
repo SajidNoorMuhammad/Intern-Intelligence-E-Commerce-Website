@@ -61,7 +61,7 @@ const SubHeader = () => {
 
                     <div className="fixed top-0 left-0 w-64 h-full bg-white z-50 p-6 shadow-lg flex flex-col gap-6">
                         <div className="flex justify-between items-center mb-4">
-                            <h2 className="text-xl font-bold text-[#0b3e56]">Menu</h2>
+                            <h2 className="text-xl font-bold text-[#0b3e56]"><i>ShopifyBeast</i></h2>
                             <button onClick={() => setIsSidebarOpen(false)}>
                                 <X className="text-black" />
                             </button>
