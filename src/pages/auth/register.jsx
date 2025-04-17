@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router';
 import { AppRoutes } from '../../constant/constant';
+import { Link } from 'react-router-dom';
 
 const RegisterPage = () => {
     const [loading, setLoading] = useState(false);
@@ -96,7 +97,7 @@ const RegisterPage = () => {
 
                     <p className="text-center text-sm text-gray-600 mt-4">
                         Already have an account?{' '}
-                        <a href="/login" className="text-indigo-600 font-medium hover:underline">Login</a>
+                        <Link to={"/login"} className="text-indigo-600 font-medium hover:underline">Login</Link>
                     </p>
                 </form>
             </div>
