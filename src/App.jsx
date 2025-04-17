@@ -15,6 +15,7 @@ import Cart from './pages/User/Cart'
 import Order from './pages/User/Order'
 import Wishlist from './pages/User/Wishlist'
 import SubHeader from './components/User/SubHeader'
+import TrackingOrder from './pages/User/TrackingOrder'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -34,6 +35,7 @@ function App() {
         <Route path='/cart' element={<Cart />} />
         <Route path='/order' element={<Order />} />
         <Route path='/wishlist' element={<Wishlist />} />
+        <Route path='/trackorder' element={<TrackingOrder />} />
 
       </Routes>
     </BrowserRouter>
