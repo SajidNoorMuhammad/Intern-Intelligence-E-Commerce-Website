@@ -4,6 +4,7 @@ import { AuthContext } from '../../context/AuthContext';
 import { AppRoutes } from '../../constant/constant';
 import { message } from 'antd';
 import { Trash2 } from 'lucide-react';
+import Loader from '../../components/Home/Loading';
 
 const Cart = () => {
     const [cartItems, setCartItems] = useState([]);
@@ -73,7 +74,7 @@ const Cart = () => {
         }
     };
 
-    if (loading) return <div className="text-center mt-10 text-lg font-medium">Loading...</div>;
+    if (loading) return <div className="text-center mt-10 text-lg font-medium"><Loader /></div>;
     if (error) return <div className="text-center mt-10 text-red-500">{error}</div>;
 
     return (
