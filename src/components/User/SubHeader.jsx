@@ -9,9 +9,13 @@ import {
     MoreHorizontal,
     Menu,
     X,
+    LogOut,
+    LogOutIcon,
+    Truck,
 } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
+import Cookies from 'js-cookie';
 
 const navLinks = [
     { to: '/', label: 'Home', icon: <Home size={20} /> },
@@ -19,13 +23,21 @@ const navLinks = [
     { to: '/profile', label: 'Profile', icon: <User size={20} /> },
     { to: '/wishlist', label: 'Wishlist', icon: <Heart size={20} /> },
     { to: '/cart', label: 'Cart', icon: <ShoppingCart size={20} /> },
-    { to: '/order', label: 'Orders', icon: <Boxes size={20} /> },
-    { to: '/more', label: 'More', icon: <MoreHorizontal size={20} /> },
+    { to: '/order', label: 'Orders', icon: <Boxes size={20} /> }
 ];
 
 const SubHeader = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-    const { user } = useContext(AuthContext);
+    const { user, setUser } = useContext(AuthContext);
+    const navigate = useNavigate('');
+    const [isMoreOpen, setIsMoreOpen] = useState(false);
+
+
+    const handleLogout = () => {
+        Cookies.set("token", "");
+        setUser("");
+        navigate('/login');
+    }
 
     return (
         <div className="bg-gradient-to-r from-[#0f5b7b] to-[#0b3e56] shadow-md">
@@ -37,10 +49,44 @@ const SubHeader = () => {
                         to={link.to}
                         className="flex items-center gap-2 text-white hover:text-yellow-400 font-medium transition-all duration-200 hover:underline underline-offset-4"
                     >
+
                         {link.icon}
                         {link.label}
+                        <span className=' ml-10'>|</span>
                     </Link>
+
                 ))}
+
+                <div className="relative">
+                    <button
+                        onClick={() => setIsMoreOpen((prev) => !prev)}
+                        className="flex items-center gap-2 text-white hover:text-yellow-400 font-medium transition-all duration-200 hover:underline underline-offset-4"
+                    >
+                        <MoreHorizontal size={20} />
+                        More
+                    </button>
+
+                    {/* Dropdown for More */}
+                    {isMoreOpen && (
+                        <div className="absolute top-8 left-0 text-white bg-[#0b3e56] shadow-lg rounded-md py-2 w-29 z-20">
+                            <Link
+                                to="/trackorder"
+                                className=" px-4 flex gap-2 items-center py-2 text-md text-white"
+                                onClick={() => setIsMoreOpen(false)}
+                            >
+                                <Truck/>Track
+                            </Link>
+                            <Link
+                                to="/faq"
+                                className=" px-4 gap-2 py-2 text-md flex items-center text-white"
+                                onClick={handleLogout}
+                            >
+                               <LogOutIcon/> LogOut
+                            </Link>
+                        </div>
+                    )}
+                </div>
+
             </div>
 
             {/* Mobile Nav Trigger */}
@@ -78,6 +124,8 @@ const SubHeader = () => {
                                 {link.label}
                             </Link>
                         ))}
+                        <button onClick={handleLogout} className=' bg-red-500 text-white font-bold rounded-md p-2 flex items-center justify-center gap-3 cursor-pointer'
+                        > <LogOut /> LogOut</button>
                     </div>
                 </>
             )}
