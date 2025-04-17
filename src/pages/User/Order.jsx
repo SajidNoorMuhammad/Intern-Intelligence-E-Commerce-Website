@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
 import { AppRoutes } from '../../constant/constant';
 import { AuthContext } from '../../context/AuthContext';
+import Loader from '../../components/Home/Loading';
 
 const Order = () => {
     const [loading, setLoading] = useState(true);
@@ -28,7 +29,7 @@ const Order = () => {
         }
     }, [user]);
 
-    if (loading) return <div className="text-center mt-10 text-lg font-medium">Loading...</div>;
+    if (loading) return <div className="text-center mt-10 text-lg font-medium"><Loader/></div>;
 
     return (
         <div className="max-w-7xl mx-auto mt-10 p-6">
