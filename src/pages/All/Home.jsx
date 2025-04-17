@@ -15,7 +15,7 @@ const Home = () => {
     return (
         <div>
             <MainSilder />
-            <div className='w-full ml-4 mr-4 max-sm:w-[95%]'>
+            <div className=' ml-4 mr-4 max-sm:w-[95%] w-[98%]'>
                 <HotCategories />
                 <FourImage />
                 <NewArrivals />
