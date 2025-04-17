@@ -12,5 +12,6 @@ export const AppRoutes = {
     addorder: BASE_URL + 'cart/place-order',
     eachorder: BASE_URL + 'cart/ordering',
     oneorder: BASE_URL + 'cart/eachorder',
-    deletecart: BASE_URL + 'user/deleteitem'
+    deletecart: BASE_URL + 'user/deleteitem',
+    trackorder: BASE_URL + 'cart/track'
 }
