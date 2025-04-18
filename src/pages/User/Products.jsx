@@ -22,6 +22,7 @@ const Products = () => {
             .get(AppRoutes.getproducts)
             .then((res) => {
                 setProducts(res?.data?.data || []);
+                console.log(res);
                 setLoader(false);
             })
             .catch((err) => {
