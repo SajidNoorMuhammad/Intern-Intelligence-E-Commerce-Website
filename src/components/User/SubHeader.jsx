@@ -19,11 +19,11 @@ import Cookies from 'js-cookie';
 
 const navLinks = [
     { to: '/', label: 'Home', icon: <Home size={20} /> },
-    { to: '/products', label: 'Products', icon: <ShoppingBag size={20} /> },
-    { to: '/profile', label: 'Profile', icon: <User size={20} /> },
-    { to: '/wishlist', label: 'Wishlist', icon: <Heart size={20} /> },
-    { to: '/cart', label: 'Cart', icon: <ShoppingCart size={20} /> },
-    { to: '/order', label: 'Orders', icon: <Boxes size={20} /> }
+    { to: '/user/products', label: 'Products', icon: <ShoppingBag size={20} /> },
+    { to: '/user/profile', label: 'Profile', icon: <User size={20} /> },
+    { to: '/user/wishlist', label: 'Wishlist', icon: <Heart size={20} /> },
+    { to: '/user/cart', label: 'Cart', icon: <ShoppingCart size={20} /> },
+    { to: '/user/order', label: 'Orders', icon: <Boxes size={20} /> }
 ];
 
 const SubHeader = () => {
@@ -70,18 +70,18 @@ const SubHeader = () => {
                     {isMoreOpen && (
                         <div className="absolute top-8 left-0 text-white bg-[#0b3e56] shadow-lg rounded-md py-2 w-29 z-20">
                             <Link
-                                to="/trackorder"
+                                to="/user/trackorder"
                                 className=" px-4 flex gap-2 items-center py-2 text-md text-white"
                                 onClick={() => setIsMoreOpen(false)}
                             >
-                                <Truck/>Track
+                                <Truck />Track
                             </Link>
                             <Link
                                 to="/faq"
                                 className=" px-4 gap-2 py-2 text-md flex items-center text-white"
                                 onClick={handleLogout}
                             >
-                               <LogOutIcon/> LogOut
+                                <LogOutIcon /> LogOut
                             </Link>
                         </div>
                     )}
