@@ -46,7 +46,7 @@ const TrackOrder = () => {
             {error && <p className="text-red-600">No Order Found Against Tracking Id</p>}
 
             {order ? (
-                order.status === "Accepted" ? (
+                (order.status === "Accepted" || order.status === "Delivered") ? (
                     <div className="mt-6 space-y-4">
                         <div className="bg-gray-100 p-4 rounded">
                             <p><span className="font-semibold">Tracking ID:</span> {order.trackingId}</p>
@@ -54,6 +54,12 @@ const TrackOrder = () => {
                             <p><span className="font-semibold">Delivered By:</span> {order.deliveryman}</p>
                             <p><span className="font-semibold">Delivery Charges:</span> Rs {order.fee}</p>
                             <p><span className="font-semibold">Placed On:</span> {new Date(order.createdAt).toLocaleString()}</p>
+                            {
+                                order?.status === "Delivered" ?
+                                    <p><span className="font-semibold">Delivered On:</span> {new Date(order.updatedAt).toLocaleString()}</p>
+                                    :
+                                    null
+                            }
                         </div>
 
                         <div className="bg-gray-100 p-4 rounded">
@@ -74,7 +80,7 @@ const TrackOrder = () => {
                         </div>
                     </div>
                 ) : (
-                    <p className="text-yellow-600 text-lg font-semibold mt-4">No order found or status not accepted yet.</p>
+                    <p className="text-yellow-600 text-lg font-semibold mt-4">No order found or order not accepted yet.</p>
                 )
             ) : null}
         </div>
