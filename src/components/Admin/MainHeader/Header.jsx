@@ -1,11 +1,13 @@
 import { Dialog, Transition } from '@headlessui/react';
-import { Fragment, useState } from 'react';
+import { Fragment, useContext, useState } from 'react';
 import { FiMenu } from 'react-icons/fi';
 import { IoClose } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../context/AuthContext';
 
 const AdminHeader = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const { user } = useContext(AuthContext);
 
     return (
         <>
@@ -29,7 +31,7 @@ const AdminHeader = () => {
                         leaveFrom="opacity-100"
                         leaveTo="opacity-0"
                     >
-                        <div className="fixed inset-0 bg-black bg-opacity-40" />
+                        <div className="fixed inset-0 backdrop-blur-sm bg-opacity-40" />
                     </Transition.Child>
 
                     <div className="fixed inset-0 overflow-hidden">
