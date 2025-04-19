@@ -29,7 +29,7 @@ const Order = () => {
         }
     }, [user]);
 
-    if (loading) return <div className="text-center mt-10 text-lg font-medium"><Loader/></div>;
+    if (loading) return <div className="text-center mt-10 text-lg font-medium"><Loader /></div>;
 
     return (
         <div className="max-w-7xl mx-auto mt-10 p-6">
