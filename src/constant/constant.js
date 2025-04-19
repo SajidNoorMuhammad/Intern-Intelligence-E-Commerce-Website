@@ -13,5 +13,13 @@ export const AppRoutes = {
     eachorder: BASE_URL + 'cart/ordering',
     oneorder: BASE_URL + 'cart/eachorder',
     deletecart: BASE_URL + 'user/deleteitem',
-    trackorder: BASE_URL + 'cart/track'
+    trackorder: BASE_URL + 'cart/track',
+
+    //Admin Link Start Here;
+    adminproducts: BASE_URL + 'admin/electronics',
+    updateproduct: BASE_URL + 'admin/updateitems',
+    deleteproduct: BASE_URL + 'admin/deleteitem',
+    allusers: BASE_URL + 'auth/register',
+    updateuser: BASE_URL + 'auth/updateuser',
+    allorders: BASE_URL + 'cart/order'
 }
