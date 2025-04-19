@@ -18,6 +18,11 @@ import { AuthContext } from './context/AuthContext';
 import UserLayout from './components/Layout/UserLayout';
 import Loader from './components/Home/Loading';
 import AllProducts from './pages/Admin/AllProducts';
+import AdminLayout from './components/Layout/AdminLayout';
+import ProductDetails from './pages/Admin/ProductDetails';
+import AllUsers from './pages/Admin/AllUsers';
+import UserDetail from './pages/Admin/UserDetail';
+import Dashboard from './pages/Admin/Dashboard';
 
 function App() {
   const { user, loading } = useContext(AuthContext);
@@ -29,12 +34,13 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Home />} />
         <Route path='/login' element={<LoginPage />} />
         <Route path='/register' element={<RegisterPage />} />
+        <Route path='/' element={<Home />} />
 
-        {user && user.role === "user" ? (
+        {user && user.role === "user" && user.accountStatus === "approved"? (
           <Route path='/user' element={<UserLayout />}>
+            <Route index element={<Home />} />
             <Route path='profile' element={<Profile />} />
             <Route path='products' element={<Products />} />
             <Route path='products/:id' element={<ProductDetail />} />
@@ -47,8 +53,22 @@ function App() {
           <Route path='/user/*' element={<Navigate to="/login" />} />
         )}
 
-        <Route path='/addproducts' element={<AddProduct />} />
-        <Route path='/allproducts' element={<AllProducts />} />
+        {user && user.role === "admin" ?
+          (
+            <Route path='/admin' element={<AdminLayout />}>
+              <Route path='addproducts' element={<AddProduct />} />
+              <Route path='allproducts' element={<AllProducts />} />
+              <Route path='allproducts/:id' element={<ProductDetails />} />
+              <Route path='allusers' element={<AllUsers />} />
+              <Route path='allusers/:id' element={<UserDetail />} />
+              <Route path='dashboard' element={<Dashboard />} />
+            </Route>
+          )
+          :
+          (
+            <Route path='/admin/*' element={<Navigate to="/login" />} />
+          )
+        }
       </Routes>
     </BrowserRouter>
   );
