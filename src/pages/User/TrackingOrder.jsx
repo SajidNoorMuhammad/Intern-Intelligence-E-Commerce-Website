@@ -46,12 +46,17 @@ const TrackOrder = () => {
             {error && <p className="text-red-600">No Order Found Against Tracking Id</p>}
 
             {order ? (
-                (order.status === "Accepted" || order.status === "Delivered") ? (
+                (order.status === "Accepted" || order.status === "Delivered"  || order.status === "Out for Delivery") ? (
                     <div className="mt-6 space-y-4">
                         <div className="bg-gray-100 p-4 rounded">
                             <p><span className="font-semibold">Tracking ID:</span> {order.trackingId}</p>
                             <p><span className="font-semibold">Status:</span> {order.status}</p>
-                            <p><span className="font-semibold">Delivered By:</span> {order.deliveryman}</p>
+                            {
+                                order?.status === "Delivered"?
+                                <p><span className="font-semibold">Delivered By:</span> {order.deliveryman}</p>
+                                :
+                                <p><span className="font-semibold">Delivered By:</span> Will Update</p>
+                            }
                             <p><span className="font-semibold">Delivery Charges:</span> Rs {order.fee}</p>
                             <p><span className="font-semibold">Placed On:</span> {new Date(order.createdAt).toLocaleString()}</p>
                             {
