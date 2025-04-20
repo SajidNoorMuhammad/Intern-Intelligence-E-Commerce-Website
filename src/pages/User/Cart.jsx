@@ -27,7 +27,6 @@ const Cart = () => {
             });
             setCartItems(response?.data?.data || []);
             setLoading(false);
-            console.log(response)
         } catch (err) {
             setError('Failed to load cart items.');
             setLoading(false);
@@ -43,7 +42,8 @@ const Cart = () => {
     const deleteCartItem = async (itemId) => {
         try {
             const response = await axios.delete(`${AppRoutes.deletecart}/${itemId}`)
-            toast.success('Product Removed From Cart Successfully');
+            toast.success("Product Removed From Cart Successfully");
+            fetchCartItems();
         }
         catch (err) {
             toast.error("Unable to Removed from Cart");
@@ -57,6 +57,7 @@ const Cart = () => {
                 itemId,
             });
             toast.success('Order Created Successfully');
+            fetchCartItems();
         } catch (err) {
             toast.error("Unable to Create Order");
         }
