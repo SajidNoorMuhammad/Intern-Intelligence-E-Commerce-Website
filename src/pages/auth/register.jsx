@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router';
 import { AppRoutes } from '../../constant/constant';
 import { Link } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 
 const RegisterPage = () => {
     const [loading, setLoading] = useState(false);
@@ -26,11 +27,11 @@ const RegisterPage = () => {
             .post(AppRoutes.registers, form)
             .then((res) => {
                 setLoading(false);
-                console.log(res);
+                toast.success("Register Successfully");
                 navigate('/login');
             })
             .catch((error) => {
-                console.log(error);
+                toast.warning("Unable to Register");
             })
     }
 
@@ -101,6 +102,8 @@ const RegisterPage = () => {
                     </p>
                 </form>
             </div>
+            <ToastContainer position='top-right' autoClose={2000} />
+
         </div>
     );
 }
