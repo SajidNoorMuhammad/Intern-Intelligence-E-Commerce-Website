@@ -18,7 +18,7 @@ import { AuthContext } from '../../context/AuthContext';
 import Cookies from 'js-cookie';
 
 const navLinks = [
-    { to: '/', label: 'Home', icon: <Home size={20} /> },
+    { to: '/user', label: 'Home', icon: <Home size={20} /> },
     { to: '/user/products', label: 'Products', icon: <ShoppingBag size={20} /> },
     { to: '/user/profile', label: 'Profile', icon: <User size={20} /> },
     { to: '/user/wishlist', label: 'Wishlist', icon: <Heart size={20} /> },
@@ -76,13 +76,12 @@ const SubHeader = () => {
                             >
                                 <Truck />Track
                             </Link>
-                            <Link
-                                to="/faq"
+                            <button
                                 className=" px-4 gap-2 py-2 text-md flex items-center text-white"
                                 onClick={handleLogout}
                             >
                                 <LogOutIcon /> LogOut
-                            </Link>
+                            </button>
                         </div>
                     )}
                 </div>
