@@ -115,6 +115,7 @@ const Order = () => {
                                                         {order?.fee}/-
                                                     </div>
                                                 </h3>
+                                                <div>-------------</div>
                                                 <h3 className="text-lg font-semibold text-gray-800 max-sm:text-[16px] flex justify-between">
                                                     <div>
                                                         Total: Rs.
