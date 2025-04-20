@@ -23,11 +23,9 @@ const Products = () => {
             .get(AppRoutes.getproducts)
             .then((res) => {
                 setProducts(res?.data?.data || []);
-                console.log(res);
                 setLoader(false);
             })
             .catch((err) => {
-                console.log(err);
                 setLoader(false);
             });
     };
@@ -46,7 +44,6 @@ const Products = () => {
                     getProducts();
                 });
         } catch (error) {
-            console.error(error);
             toast.error('❌ Failed to add to cart.');
         }
     };
@@ -69,7 +66,7 @@ const Products = () => {
                                 key={index}
                                 className="bg-white shadow-lg rounded-2xl overflow-hidden hover:shadow-xl transition duration-300 transform hover:-translate-y-1"
                             >
-                                <Link to={`/products/${product?._id}`} className="relative group">
+                                <Link to={`/user/products/${product?._id}`} className="relative group">
                                     {/* Diagonal Ribbon */}
                                     <div className="absolute top-3 -left-8 w-32 transform -rotate-45 bg-red-600 text-white text-xs text-center font-bold py-1 shadow-lg z-10">
                                         {product.batchNo || 'N/A'}
