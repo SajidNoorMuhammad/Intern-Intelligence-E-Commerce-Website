@@ -29,7 +29,6 @@ const AuthContextProvider = ({ children }) => {
                 setUser(res?.data?.data);
             })
             .catch((err) => {
-                console.log("User fetch error:", err);
             })
             .finally(() => {
                 setLoading(false); // Done loading whether success or fail
