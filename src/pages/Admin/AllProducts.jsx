@@ -30,6 +30,7 @@ const AllProducts = () => {
         const res = await axios.delete(`${AppRoutes.deleteproduct}/${id}`);
         console.log(res);
         toast.success("Product Deleted Successfully");
+        getProducts();
     };
 
     const handleStatusToggle = (product) => {
@@ -43,7 +44,8 @@ const AllProducts = () => {
 
         try {
             const res = await axios.put(`${AppRoutes.updateproduct}/${selectedProduct._id}`, {
-                status: newStatus
+                status: newStatus,
+                productId: selectedProduct._id, // ✅ Important for updating Cart status
             });
 
             const updatedProduct = res?.data?.data;
@@ -60,8 +62,10 @@ const AllProducts = () => {
             toast.success("Product Updated Successfully");
         } catch (err) {
             console.error("Error updating status:", err);
+            toast.error("Failed to update product");
         }
     };
+
 
     return (
         <div className="p-6">
@@ -124,8 +128,8 @@ const AllProducts = () => {
 
             {/* Modal */}
             {showModal && (
-                <div className="fixed inset-0 bg-black bg-opacity-3 flex items-center justify-center z-50">
-                    <div className="bg-white rounded-lg shadow-lg p-6 w-80">
+                <div className="fixed inset-0 backdrop-blur-sm bg-opacity-3 flex items-center justify-center z-50">
+                    <div className="bg-gray-400 rounded-lg shadow-lg p-6 w-80">
                         <h3 className="text-lg font-bold mb-4">Change Product Status</h3>
 
                         <select
