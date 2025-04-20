@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import { message } from 'antd';
 import Loader from '../../components/Home/Loading';
+import { toast, ToastContainer } from 'react-toastify';
 
 const Products = () => {
     const [products, setProducts] = useState([]);
@@ -41,12 +42,12 @@ const Products = () => {
             axios
                 .post(AppRoutes.addtocart, request)
                 .then((res) => {
-                    message.success('Product Added to cart Successfully');
-                    window.location.reload();
+                    toast.success(`Product Add to Cart Successfully`)
+                    getProducts();
                 });
         } catch (error) {
             console.error(error);
-            message.error('❌ Failed to add to cart.');
+            toast.error('❌ Failed to add to cart.');
         }
     };
 
@@ -113,7 +114,9 @@ const Products = () => {
                     })}
                 </div>
             )}
+            <ToastContainer position='top-right' autoClose={3000} />
         </div>
+
     );
 };
 
