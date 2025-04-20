@@ -5,6 +5,7 @@ import { IoClose } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthContext';
 import { LogOutIcon } from 'lucide-react';
+import Cookies from 'js-cookie';
 
 const AdminHeader = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -19,11 +20,11 @@ const AdminHeader = () => {
     return (
         <>
             {/* Header */}
-            <header className="bg-gray-900 text-white px-6 py-4 flex justify-between items-center shadow-md">
+            <header className=" bg-gray-900 text-white px-6 py-4 flex justify-between items-center shadow-md">
                 <h1 className="text-xl font-bold">Admin Panel</h1>
                 <div className=' flex items-center gap-3'>
                     <img className="w-12 h-12 rounded-full ml-4 border-2 border-white" src={user?.yourImage} alt="" />
-                    <p>{user?.email}</p>
+                    <p className=' max-sm:hidden'>{user?.email}</p>
                     <button onClick={() => setIsOpen(true)} className="text-white text-2xl">
                         <FiMenu />
                     </button>
