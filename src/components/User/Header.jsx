@@ -19,7 +19,7 @@ const Header = () => {
         });
         setCartItems(response?.data?.data || []);
       } catch (err) {
-        console.log(err);
+        setLoading(false);
       } finally {
         setLoading(false);
       }
