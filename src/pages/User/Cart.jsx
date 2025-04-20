@@ -5,6 +5,7 @@ import { AppRoutes } from '../../constant/constant';
 import { message } from 'antd';
 import { Trash2 } from 'lucide-react';
 import Loader from '../../components/Home/Loading';
+import { toast, ToastContainer } from 'react-toastify';
 
 const Cart = () => {
     const [cartItems, setCartItems] = useState([]);
@@ -13,24 +14,25 @@ const Cart = () => {
     const { user } = useContext(AuthContext);
 
     useEffect(() => {
-        const fetchCartItems = async () => {
-            try {
-                setLoading(true);
-                const response = await axios.get(AppRoutes.usercart, {
-                    params: { userId: user._id },
-                });
-                setCartItems(response?.data?.data || []);
-                setLoading(false);
-            } catch (err) {
-                setError('Failed to load cart items.');
-                setLoading(false);
-            }
-        };
-
         if (user?._id) {
             fetchCartItems();
         }
     }, [user]);
+
+    const fetchCartItems = async () => {
+        try {
+            setLoading(true);
+            const response = await axios.get(AppRoutes.usercart, {
+                params: { userId: user._id },
+            });
+            setCartItems(response?.data?.data || []);
+            setLoading(false);
+            console.log(response)
+        } catch (err) {
+            setError('Failed to load cart items.');
+            setLoading(false);
+        }
+    };
 
     // Calculate total amount (after discount × quantity)
     const totalAmount = cartItems.reduce((acc, item) => {
@@ -41,11 +43,10 @@ const Cart = () => {
     const deleteCartItem = async (itemId) => {
         try {
             const response = await axios.delete(`${AppRoutes.deletecart}/${itemId}`)
-            console.log(response);
-            message.success('Product Removed From Cart Successfully');
+            toast.success('Product Removed From Cart Successfully');
         }
         catch (err) {
-            console.log(err);
+            toast.error("Unable to Removed from Cart");
         }
     }
 
@@ -55,10 +56,9 @@ const Cart = () => {
                 userId: user?._id,
                 itemId,
             });
-            message.success('Order Created Successfully');
-            console.log('Order placed:', response);
+            toast.success('Order Created Successfully');
         } catch (err) {
-            console.error('Error while placing order', err);
+            toast.error("Unable to Create Order");
         }
     };
 
@@ -67,10 +67,11 @@ const Cart = () => {
             const response = await axios.post(AppRoutes.addorder, {
                 userId: user._id,
             });
-            message.success('Order Created Successfully');
-            console.log('Order placed for all items', response.data);
+            toast.success('All Items Order Created Successfully');
+            fetchCartItems();
+
         } catch (err) {
-            console.error('Error while placing order', err);
+            toast.error("Unable to Create Order");
         }
     };
 
@@ -147,6 +148,7 @@ const Cart = () => {
                     </div>
                 </>
             )}
+            <ToastContainer position='top-right' autoClose={3000} />
         </div>
     );
 };
