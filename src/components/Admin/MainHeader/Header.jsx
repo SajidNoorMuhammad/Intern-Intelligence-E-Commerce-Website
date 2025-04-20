@@ -4,19 +4,31 @@ import { FiMenu } from 'react-icons/fi';
 import { IoClose } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthContext';
+import { LogOutIcon } from 'lucide-react';
 
 const AdminHeader = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const { user } = useContext(AuthContext);
+    const { user, setUser } = useContext(AuthContext);
+
+    const handleLogout = () => {
+        Cookies.set("token", "");
+        setUser("");
+        navigate('/login');
+    }
 
     return (
         <>
             {/* Header */}
             <header className="bg-gray-900 text-white px-6 py-4 flex justify-between items-center shadow-md">
                 <h1 className="text-xl font-bold">Admin Panel</h1>
-                <button onClick={() => setIsOpen(true)} className="text-white text-2xl">
-                    <FiMenu />
-                </button>
+                <div className=' flex items-center gap-3'>
+                    <img className="w-12 h-12 rounded-full ml-4 border-2 border-white" src={user?.yourImage} alt="" />
+                    <p>{user?.email}</p>
+                    <button onClick={() => setIsOpen(true)} className="text-white text-2xl">
+                        <FiMenu />
+                    </button>
+                </div>
+
             </header>
 
             {/* Sidebar Dialog with Transition */}
@@ -56,10 +68,15 @@ const AdminHeader = () => {
 
                                         <nav className="flex flex-col gap-4 text-gray-800">
                                             <Link to="/admin/dashboard" className="hover:text-blue-600">📊 Dashboard</Link>
-                                            <Link to="/admin/products" className="hover:text-blue-600">🛒 Products</Link>
-                                            <Link to="/admin/orders" className="hover:text-blue-600">📦 Orders</Link>
-                                            <Link to="/admin/users" className="hover:text-blue-600">👥 Users</Link>
+                                            <Link to="/admin/addproducts" className="hover:text-blue-600">➕ Add Products</Link>
+                                            <Link to="/admin/allproducts" className="hover:text-blue-600">🛒 Products</Link>
+                                            <Link to="/admin/addusers" className="hover:text-blue-600">➕ Add User</Link>
+                                            <Link to="/admin/allusers" className="hover:text-blue-600">👥 Users</Link>
+                                            <Link to="/admin/allorders" className="hover:text-blue-600">📦 Orders</Link>
+                                            <Link to="/admin/profile" className="hover:text-blue-600">🧑 My Profile</Link>
+                                            <Link to="/admin/cart" className="hover:text-blue-600">🛒 Cart</Link>
                                             <Link to="/admin/settings" className="hover:text-blue-600">⚙️ Settings</Link>
+                                            <button onClick={handleLogout} className=' flex items-center bg-red-600 text-white font-bold rounded-md p-2 gap-2'><LogOutIcon /> LogOut</button>
                                         </nav>
                                     </Dialog.Panel>
                                 </Transition.Child>
