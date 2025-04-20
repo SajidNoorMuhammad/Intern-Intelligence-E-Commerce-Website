@@ -23,6 +23,9 @@ import ProductDetails from './pages/Admin/ProductDetails';
 import AllUsers from './pages/Admin/AllUsers';
 import UserDetail from './pages/Admin/UserDetail';
 import Dashboard from './pages/Admin/Dashboard';
+import AllOrders from './pages/Admin/AllOrders';
+import OrderDetail from './pages/Admin/OrderDetail';
+import MyProfile from './pages/Admin/MyProfile';
 
 function App() {
   const { user, loading } = useContext(AuthContext);
@@ -60,8 +63,12 @@ function App() {
               <Route path='allproducts' element={<AllProducts />} />
               <Route path='allproducts/:id' element={<ProductDetails />} />
               <Route path='allusers' element={<AllUsers />} />
+              <Route path='addusers' element={<RegisterPage />} />
               <Route path='allusers/:id' element={<UserDetail />} />
               <Route path='dashboard' element={<Dashboard />} />
+              <Route path='allorders' element={<AllOrders />} />
+              <Route path='allorders/:id' element={<OrderDetail />} />
+              <Route path='profile' element={<MyProfile/>}/>
             </Route>
           )
           :
