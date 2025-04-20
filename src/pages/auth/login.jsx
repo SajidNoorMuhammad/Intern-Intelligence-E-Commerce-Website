@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router';
 import Cookies from 'js-cookie';
 import { Eye, EyeOff } from 'lucide-react'; // You can also use any icon library
 import { Link } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 
 export default function LoginPage() {
     const [loading, setLoading] = useState(false);
@@ -27,16 +28,21 @@ export default function LoginPage() {
             .then((res) => {
                 Cookies.set("token", res?.data?.data?.token, { expires: 1 });
                 setUser(res?.data?.data?.user);
-                navigate('/');
+                toast.success("Login Succcessfully");
+                if (res?.data?.data?.user?.role === "user") {
+                    navigate('/user');
+                } else {
+                    navigate('/admin')
+                }
             })
             .catch((err) => {
-                console.log(err);
+                toast.warning("Login Failed")
                 setLoading(false);
             });
     };
 
     return (
-        <div className=" max-sm:min-h-0 max-sm:py-12 py-16 flex items-center justify-center bg-gradient-to-br from-purple-300 via-pink-200 to-yellow-100 p-4">
+        <div className=" max-sm:min-h-0 min-h-screen max-sm:py-12 py-16 flex items-center justify-center bg-gradient-to-br from-purple-300 via-pink-200 to-yellow-100 p-4">
             <div className="bg-white rounded-2xl shadow-lg p-8 w-full max-w-md transition-transform transform hover:scale-105">
                 <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">Login</h2>
                 <form onSubmit={handleLogin} className="space-y-5">
@@ -77,6 +83,7 @@ export default function LoginPage() {
                     </button>
                 </form>
             </div>
+            <ToastContainer position='top-right' autoClose={2000} />
         </div>
     );
 }
