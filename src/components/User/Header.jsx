@@ -34,7 +34,7 @@ const Header = () => {
     <header className="bg-[#10658b] shadow-md sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
 
-        <Link to={'/'} className="text-2xl font-bold italic underline text-white">
+        <Link to={'/user'} className="text-2xl font-bold italic underline text-white">
           ShopifyBeast
         </Link>
 
@@ -52,7 +52,7 @@ const Header = () => {
           </Link>
 
           {/* 🛒 Cart Icon with Count */}
-          <Link to={'/cart'}>
+          <Link to={'/user/cart'}>
             <div className="relative ml-4">
               <ShoppingCart className="cursor-pointer text-white hover:text-black" />
               {cartItems.length > 0 && (
@@ -64,7 +64,7 @@ const Header = () => {
           </Link>
 
           {/* 👤 User Image or Icon */}
-          <Link className=' flex items-center' to={user ? '/profile' : '/login'}>
+          <Link className=' flex items-center' to={user ? '/user/profile' : '/login'}>
             {user?.yourImage ? (
               <img className="w-12 h-12 rounded-full ml-4 border-2 border-white" src={user?.yourImage} alt="User" />
             ) : (
