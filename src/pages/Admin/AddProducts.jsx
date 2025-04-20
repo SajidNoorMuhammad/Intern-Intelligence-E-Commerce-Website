@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { UploadCloud } from 'lucide-react';
 import { AppRoutes } from '../../constant/constant';
+import { toast, ToastContainer } from 'react-toastify';
 
 const AddProduct = () => {
     const [formData, setFormData] = useState({
@@ -44,7 +45,7 @@ const AddProduct = () => {
             const res = await axios.post(AppRoutes.addproducts, productData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
             });
-            alert('Product added successfully!');
+            toast.success('Product Added Successfully');
             console.log(res.data);
             setFormData({
                 title: '',
@@ -57,7 +58,7 @@ const AddProduct = () => {
             setImage(null);
         } catch (err) {
             console.error(err);
-            alert('Something went wrong!');
+            toast.error("Unable to add product")
         }
     };
 
@@ -137,6 +138,7 @@ const AddProduct = () => {
                     Add Product
                 </button>
             </form>
+            <ToastContainer position="top-right" autoClose={3000} />
         </div>
     );
 };
