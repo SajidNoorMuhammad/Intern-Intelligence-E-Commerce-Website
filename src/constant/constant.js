@@ -21,5 +21,7 @@ export const AppRoutes = {
     deleteproduct: BASE_URL + 'admin/deleteitem',
     allusers: BASE_URL + 'auth/register',
     updateuser: BASE_URL + 'auth/updateuser',
-    allorders: BASE_URL + 'cart/order'
+    allorders: BASE_URL + 'cart/order',
+    updateorder: BASE_URL+ 'cart/update-order-status',
+    deleteorders: BASE_URL + 'cart/deleteorder'
 }
