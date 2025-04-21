@@ -114,11 +114,6 @@ const ProductDetail = () => {
                             </div>
                         </div>
 
-                        {/* Add to Cart Button */}
-                        <button className="mt-6 w-full bg-blue-600 text-white py-3 rounded-lg text-sm font-medium flex justify-center items-center gap-2 hover:bg-blue-700 active:scale-95 transition-all duration-150">
-                            <ShoppingCart size={18} />
-                            Add to Cart
-                        </button>
                         <button
                             className=" w-full bg-blue-600 max-sm:mt-3 cursor-pointer text-white py-3 rounded-lg text-sm font-medium flex justify-center items-center gap-2 hover:bg-blue-700 active:scale-95 transition-all duration-150"
                             onClick={() => navigate(-1)}
