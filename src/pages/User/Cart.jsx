@@ -6,12 +6,14 @@ import { message } from 'antd';
 import { Trash2 } from 'lucide-react';
 import Loader from '../../components/Home/Loading';
 import { toast, ToastContainer } from 'react-toastify';
+import { useNavigate } from 'react-router';
 
 const Cart = () => {
     const [cartItems, setCartItems] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
     const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (user?._id) {
@@ -61,7 +63,7 @@ const Cart = () => {
                 phoneNum: user.phoneNum
             });
             toast.success('Order Created Successfully');
-            fetchCartItems();
+            navigate('/user/order')
         } catch (err) {
             toast.error("Unable to Create Order");
         }
