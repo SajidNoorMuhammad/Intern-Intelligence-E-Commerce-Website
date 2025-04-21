@@ -42,25 +42,26 @@ const SubHeader = () => {
     return (
         <div className="bg-gradient-to-r from-[#0f5b7b] to-[#0b3e56] shadow-md">
             {/* Desktop / Tablet Nav */}
-            <div className="max-w-7xl mx-auto px-4 py-3 hidden md:flex flex-wrap justify-center md:justify-between gap-6">
-                {navLinks.map((link, i) => (
-                    <Link
-                        key={i}
-                        to={link.to}
-                        className="flex items-center gap-2 text-white hover:text-yellow-400 font-medium transition-all duration-200 hover:underline underline-offset-4"
-                    >
-
-                        {link.icon}
-                        {link.label}
-                        <span className=' ml-10'>|</span>
-                    </Link>
-
-                ))}
+            <div className="max-w-7xl mx-auto px-4 py-3 hidden md:flex justify-between items-center">
+                <div className="flex gap-6 items-center">
+                    {navLinks.map((link, i) => (
+                        <Link
+                            key={i}
+                            to={link.to}
+                            className="flex items-center gap-2 text-white hover:text-yellow-400 font-semibold transition-all duration-200"
+                        >
+                            <div className="flex items-center gap-2 px-2 py-1 rounded-md hover:bg-white/10 transition">
+                                {link.icon}
+                                <span>{link.label}</span>
+                            </div>
+                        </Link>
+                    ))}
+                </div>
 
                 <div className="relative">
                     <button
                         onClick={() => setIsMoreOpen((prev) => !prev)}
-                        className="flex items-center gap-2 text-white hover:text-yellow-400 font-medium transition-all duration-200 hover:underline underline-offset-4"
+                        className="flex items-center gap-2 text-white hover:text-yellow-400 font-semibold transition-all duration-200 px-2 py-1 rounded-md hover:bg-white/10"
                     >
                         <MoreHorizontal size={20} />
                         More
@@ -68,25 +69,27 @@ const SubHeader = () => {
 
                     {/* Dropdown for More */}
                     {isMoreOpen && (
-                        <div className="absolute top-8 left-0 text-white bg-[#0b3e56] shadow-lg rounded-md py-2 w-29 z-20">
+                        <div className="absolute right-0 mt-2 w-40 bg-white rounded-md shadow-lg z-50">
                             <Link
                                 to="/user/trackorder"
-                                className=" px-4 flex gap-2 items-center py-2 text-md text-white"
+                                className="flex items-center gap-2 px-4 py-2 text-gray-800 hover:bg-gray-100 transition"
                                 onClick={() => setIsMoreOpen(false)}
                             >
-                                <Truck />Track
+                                <Truck size={18} />
+                                Track Order
                             </Link>
                             <button
-                                className=" px-4 gap-2 py-2 text-md flex items-center text-white"
+                                className="flex items-center gap-2 px-4 py-2 text-red-600 hover:bg-gray-100 w-full transition"
                                 onClick={handleLogout}
                             >
-                                <LogOutIcon /> LogOut
+                                <LogOutIcon size={18} />
+                                Log Out
                             </button>
                         </div>
                     )}
                 </div>
-
             </div>
+
 
             {/* Mobile Nav Trigger */}
             <div className="md:hidden flex justify-between items-center px-4 py-3">
