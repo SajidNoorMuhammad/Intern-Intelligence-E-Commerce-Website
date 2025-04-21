@@ -14,6 +14,7 @@ const AllOrders = () => {
     const [showModal, setShowModal] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
     const [viewOrder, setViewOrder] = useState(null); // For showing order in view modal
+    console.log(viewOrder)
 
     useEffect(() => {
         fetchOrders();
@@ -250,13 +251,10 @@ Traking: ${<div><img src={order.trackingIdImage} alt="" /></div>}
                                 <p><strong>Updated At:</strong> {new Date(viewOrder.updatedAt).toLocaleString()}</p>
                             </div>
                             <div>
-                                <p><strong>Customer Name:</strong> {viewOrder.customer?.name || 'N/A'}</p>
-                                <p><strong>Email:</strong> {viewOrder.customer?.email || 'N/A'}</p>
-                                <p><strong>Phone:</strong> {viewOrder.customer?.phone || 'N/A'}</p>
-                                <p><strong>Address:</strong></p>
-                                <p className="ml-2 text-gray-600">
-                                    {viewOrder.address?.street}, {viewOrder.address?.city}, {viewOrder.address?.zip}
-                                </p>
+                                <p><strong>Customer Name:</strong> {viewOrder.userName || 'N/A'}</p>
+                                <p><strong>Email:</strong> {viewOrder.userEmail || 'N/A'}</p>
+                                <p><strong>Phone:</strong> {viewOrder.userNum || 'N/A'}</p>
+                                <p><strong>Address:</strong> {viewOrder.userAddress}</p>
                             </div>
                         </div>
 
@@ -317,7 +315,7 @@ Traking: ${<div><img src={order.trackingIdImage} alt="" /></div>}
                                                         <td colSpan="6" className="px-3 py-2 text-right">Total:</td>
                                                         <td className="px-3 py-2">
                                                             Rs. {(calculatedTotal + Number(viewOrder.fee || 0)).toFixed(2)}
-                                                        </td>                                             
+                                                        </td>
                                                     </tr>
                                                 </>
                                             );
