@@ -101,7 +101,6 @@ const Products = () => {
                                         </button>
                                     ) : (
                                         <button className="w-full bg-red-600 text-white py-2 rounded-full flex justify-center cursor-pointer items-center gap-2 hover:bg-red-700 active:scale-95 transition-all duration-200">
-                                            <Heart size={18} />
                                             {product.status}
                                         </button>
                                     )}
