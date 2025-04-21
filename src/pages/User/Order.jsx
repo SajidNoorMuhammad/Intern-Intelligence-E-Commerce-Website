@@ -105,7 +105,7 @@ const Order = () => {
                                         </div>
                                     </h3>
                                     {
-                                        order?.status === "Accepted" ?
+                                        order?.status != "Pending" ?
                                             <div>
                                                 <h3 className="text-lg flex justify-between font-semibold text-gray-800 max-sm:text-[16px]">
                                                     <div>
