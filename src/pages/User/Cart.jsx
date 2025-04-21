@@ -67,8 +67,13 @@ const Cart = () => {
         try {
             const response = await axios.post(AppRoutes.addorder, {
                 userId: user._id,
+                fullname: user.fullname,
+                email: user.email,
+                address: user.address,
+                phoneNum: user.phoneNum
             });
             toast.success('All Items Order Created Successfully');
+            console.log(response);
             fetchCartItems();
 
         } catch (err) {
