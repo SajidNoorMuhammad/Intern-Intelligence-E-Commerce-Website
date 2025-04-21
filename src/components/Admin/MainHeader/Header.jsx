@@ -77,7 +77,7 @@ const AdminHeader = () => {
                                             <Link to="/admin/profile" className="hover:text-blue-600">🧑 My Profile</Link>
                                             <Link to="/admin/cart" className="hover:text-blue-600">🛒 Cart</Link>
                                             <Link to="/admin/settings" className="hover:text-blue-600">⚙️ Settings</Link>
-                                            <button onClick={handleLogout} className=' flex items-center bg-red-600 text-white font-bold rounded-md p-2 gap-2'><LogOutIcon /> LogOut</button>
+                                            <button onClick={handleLogout} className=' cursor-pointer text-center justify-center flex items-center bg-red-600 text-white font-bold rounded-md p-2 gap-2'><LogOutIcon /> LogOut</button>
                                         </nav>
                                     </Dialog.Panel>
                                 </Transition.Child>
