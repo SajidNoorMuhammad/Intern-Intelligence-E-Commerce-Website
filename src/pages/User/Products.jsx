@@ -100,9 +100,9 @@ const Products = () => {
                                             Add to Cart
                                         </button>
                                     ) : (
-                                        <button className="w-full bg-pink-600 text-white py-2 rounded-full flex justify-center items-center gap-2 hover:bg-pink-700 active:scale-95 transition-all duration-200">
+                                        <button className="w-full bg-red-600 text-white py-2 rounded-full flex justify-center cursor-pointer items-center gap-2 hover:bg-red-700 active:scale-95 transition-all duration-200">
                                             <Heart size={18} />
-                                            Add to Wishlist
+                                            {product.status}
                                         </button>
                                     )}
                                 </div>
