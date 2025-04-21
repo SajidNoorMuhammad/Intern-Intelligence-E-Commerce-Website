@@ -29,6 +29,7 @@ const AuthContextProvider = ({ children }) => {
                 setUser(res?.data?.data);
             })
             .catch((err) => {
+                setLoading(false);
             })
             .finally(() => {
                 setLoading(false); // Done loading whether success or fail
