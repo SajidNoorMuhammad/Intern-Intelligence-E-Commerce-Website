@@ -55,6 +55,10 @@ const Cart = () => {
             const response = await axios.post(AppRoutes.oneorder, {
                 userId: user?._id,
                 itemId,
+                fullname: user.fullname,
+                email: user.email,
+                address: user.address,
+                phoneNum: user.phoneNum
             });
             toast.success('Order Created Successfully');
             fetchCartItems();
