@@ -85,7 +85,7 @@ const Order = () => {
                                                     <h4 className="text-lg font-medium text-gray-800">{item.productName}</h4>
                                                     <p className="text-sm text-gray-600">
                                                         <strong>Original Price:</strong> Rs. {item.price} <br />
-                                                        <strong>Discounted Price:</strong> Rs. {discountedPrice.toFixed(2)} <br />
+                                                        <strong>Discounted Price:</strong> Rs. {discountedPrice} <br />
                                                         <strong>Quantity:</strong> {item.quantity}
                                                     </p>
                                                 </div>
@@ -101,7 +101,7 @@ const Order = () => {
                                             Total Amount (After Disc): Rs.
                                         </div>
                                         <div>
-                                            {Math.round(calculatedTotal).toFixed(2)}
+                                            {Math.round(calculatedTotal)}
                                         </div>
                                     </h3>
                                     {
@@ -112,7 +112,7 @@ const Order = () => {
                                                         Delivery fee: Rs.
                                                     </div>
                                                     <div>
-                                                        {order?.fee}/-
+                                                        {order?.fee}
                                                     </div>
                                                 </h3>
                                                 <div>-------------</div>
@@ -121,7 +121,7 @@ const Order = () => {
                                                         Total: Rs.
                                                     </div>
                                                     <div>
-                                                        {Math.round(calculatedTotal) + Number(order?.fee)}/-
+                                                        {(Math.round(calculatedTotal) + Number(order?.fee)).toFixed(2)}
                                                     </div>
                                                 </h3>
                                             </div>
