@@ -37,27 +37,14 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {
-          !user ?
+        {/* Public Routes */}
+        {!user && (
+          <>
             <Route path='/login' element={<LoginPage />} />
-            :
-            null
-        }
-
-        {
-          !user ?
             <Route path='/register' element={<RegisterPage />} />
-            :
-            null
-        }
-
-
-        {
-          !user ?
-            <Route path='/' element={<LoginPage />} />
-            :
-            null
-        }
+            <Route path='/' element={<Navigate to='/login' />} />
+          </>
+        )}
 
         {user && user.role === "user" && user.accountStatus === "approved" ? (
           <Route path='/user' element={<UserLayout />}>
