@@ -37,11 +37,29 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/login' element={<LoginPage />} />
-        <Route path='/register' element={<RegisterPage />} />
-        <Route path='/' element={<Home />} />
+        {
+          !user ?
+            <Route path='/login' element={<LoginPage />} />
+            :
+            null
+        }
 
-        {user && user.role === "user" && user.accountStatus === "approved"? (
+        {
+          !user ?
+            <Route path='/register' element={<RegisterPage />} />
+            :
+            null
+        }
+
+
+        {
+          !user ?
+            <Route path='/' element={<LoginPage />} />
+            :
+            null
+        }
+
+        {user && user.role === "user" && user.accountStatus === "approved" ? (
           <Route path='/user' element={<UserLayout />}>
             <Route index element={<Home />} />
             <Route path='profile' element={<Profile />} />
@@ -68,7 +86,7 @@ function App() {
               <Route path='dashboard' element={<Dashboard />} />
               <Route path='allorders' element={<AllOrders />} />
               <Route path='allorders/:id' element={<OrderDetail />} />
-              <Route path='profile' element={<MyProfile/>}/>
+              <Route path='profile' element={<MyProfile />} />
             </Route>
           )
           :
